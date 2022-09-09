@@ -47,25 +47,28 @@ const Llamador = ()=>{
     
     return <>
             <div id='llamador'>     
-                <div className='container-fluid d-flex'>
+                <div className='container-fluid d-flex llamador__container'>
                     <div className='llamador_logo_titulo__last__pac'>
                         <div className='d-flex llamador_logo_titulo align-items-center'>
                             <img src={Logo} ></img>
                             <span className='llamador_establecimiento'>Establecimiento</span>
                         </div>
-                        <div>
-                            <h2>Martinez Gutierrez José Alberto</h2>
-                            <div className='d-flex'>
-                                <div>Box-2</div>
+                         <div className='llamador_last_call d-flex flex-column'> 
+                            <h1>Martinez Gutierrez José Alberto</h1>
+                            <div className='d-flex justify-content-between llamador_last_call_video_consul'>
                                 <div>ACÁ VA VIDEO</div>
+                                <div className='llamador_last_call_consul d-flex flex-column align-items-center'>
+                                    <p className='llamador_last_call_consul_number'>2</p>
+                                    <p>Box</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div className='llamador_list_last_call'>
                         <h2>últimosLLamados</h2>
                         <div>
                             <h3>Martinez Gutierrez José Alberto</h3>
-                            <div>Box-2</div>
+                            <div className='llamador_list_last_call_consul'>Box-2</div>
                         </div>
                     </div>
                 </div>           
