@@ -1,62 +1,64 @@
 import React, {useEffect, useState} from 'react'
-import Pusher from 'pusher-js';
+//import Pusher from 'pusher-js';
 import Logo from '../../images/logo.png'
 import './index.scss'
 
-export const Llamador = ()=>{    
-    const [paciente, setpaciente] = useState({
-        nombre: '',
-        apellido: '',
-        consultorio: ''
-    })
-    const [listaPaciente, setListaPaciente] = useState([])
+const Llamador = ()=>{    
+    // const [paciente, setpaciente] = useState({
+    //     nombre: '',
+    //     apellido: '',
+    //     consultorio: ''
+    // })
+    // const [listaPaciente, setListaPaciente] = useState([])
     
     
-    useEffect(()=>{        
-        let callback = (eventName, dato) => {   
-            console.log(dato)
-            console.log(paciente.nombre )
-            if((Object.keys(dato).length > 0) && paciente.nombre !== ''){    
+    // useEffect(()=>{        
+    //     let callback = (eventName, dato) => {   
+    //         console.log(dato)
+    //         console.log(paciente.nombre )
+    //         if((Object.keys(dato).length > 0) && paciente.nombre !== ''){    
                               
-                setpaciente(paciente.nombre = dato.message.nombre,
-                    paciente.apellido = dato.message.apellido,
-                    paciente.consultorio = dato.message.consultorio)                
-                setListaPaciente(listaPaciente.push(paciente))            
+    //             setpaciente(paciente.nombre = dato.message.nombre,
+    //                 paciente.apellido = dato.message.apellido,
+    //                 paciente.consultorio = dato.message.consultorio)                
+    //             setListaPaciente(listaPaciente.push(paciente))            
                 
-            }
+    //         }
             
-            console.log(paciente)
-            console.log(listaPaciente)
-          };
-        const pusher = new Pusher('fd221ab961e9ba848ace',{
-            cluster: 'us2'
-        })        
-        console.log(pusher)
+    //         console.log(paciente)
+    //         console.log(listaPaciente)
+    //       };
+    //     const pusher = new Pusher('fd221ab961e9ba848ace',{
+    //         cluster: 'us2'
+    //     })        
+    //     console.log(pusher)
         
         
-        const prueba = pusher.subscribe('channel-llamador')                
-        console.log(prueba)
-        prueba.bind_global(callback)
+    //     const prueba = pusher.subscribe('channel-llamador')                
+    //     console.log(prueba)
+    //     prueba.bind_global(callback)
         
-        return (()=>{
-            prueba.unsubscribe('channel-llamador')        
-        })
-    },[])
+    //     return (()=>{
+    //         prueba.unsubscribe('channel-llamador')        
+    //     })
+    // },[])
 
     
     
     return <>
             <div id='llamador'>     
-                <div>
-                    <div>
-                        <div>
+                <div className='container-fluid d-flex'>
+                    <div className='llamador_logo_titulo__last__pac'>
+                        <div className='d-flex llamador_logo_titulo align-items-center'>
                             <img src={Logo} ></img>
-                            <h1>Establecimiento</h1>
+                            <span className='llamador_establecimiento'>Establecimiento</span>
                         </div>
                         <div>
                             <h2>Martinez Gutierrez José Alberto</h2>
-                            <div>Box-2</div>
-                            <div>ACÁ VA VIDEO</div>
+                            <div className='d-flex'>
+                                <div>Box-2</div>
+                                <div>ACÁ VA VIDEO</div>
+                            </div>
                         </div>
                     </div>
                     <div>
@@ -68,7 +70,6 @@ export const Llamador = ()=>{
                     </div>
                 </div>           
             </div>
-
             </>
         
 }
@@ -144,3 +145,4 @@ export const Llamador = ()=>{
         
 // }
 
+export default Llamador
