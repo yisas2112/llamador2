@@ -1,15 +1,18 @@
 import React, {useEffect, useState} from 'react'
-//import Pusher from 'pusher-js';
+import Pusher from 'pusher-js';
 import Logo from '../../images/logo.png'
 import './index.scss'
+import Media from '../video'
+import Video from '../../images/video.mp4'
+import Datos from '../../datos/datos.json'
 
-const Llamador = ()=>{    
-    // const [paciente, setpaciente] = useState({
-    //     nombre: '',
-    //     apellido: '',
-    //     consultorio: ''
-    // })
-    // const [listaPaciente, setListaPaciente] = useState([])
+const Llamador = ()=>{        
+    const [paciente, setpaciente] = useState({
+        nombre: '',
+        apellido: '',
+        consultorio: ''
+    })
+    const [listaPaciente, setListaPaciente] = useState([])
     
     
     // useEffect(()=>{        
@@ -43,6 +46,10 @@ const Llamador = ()=>{
     //     })
     // },[])
 
+    useEffect(()=>{
+        console.log(Datos)
+    })
+
     
     
     return <>
@@ -51,24 +58,50 @@ const Llamador = ()=>{
                     <div className='llamador_logo_titulo__last__pac'>
                         <div className='d-flex llamador_logo_titulo align-items-center'>
                             <img src={Logo} ></img>
-                            <span className='llamador_establecimiento'>Establecimiento</span>
+                            
                         </div>
-                         <div className='llamador_last_call d-flex flex-column'> 
-                            <h1>Martinez Gutierrez José Alberto</h1>
-                            <div className='d-flex justify-content-between llamador_last_call_video_consul'>
-                                <div>ACÁ VA VIDEO</div>
-                                <div className='llamador_last_call_consul d-flex flex-column align-items-center'>
-                                    <p className='llamador_last_call_consul_number'>2</p>
-                                    <p>Box</p>
+                        <div className='llamador_last_call d-flex flex-column '> 
+                            <h1>Jesús Rodriguez</h1>
+                            <div className='d-flex justify-content-around llamador_last_call_video_consul '>
+                                <div className='llamador_last_call_consul_number d-flex flex-column align-items-center '>
+                                    <div className='llamador_last_call_number d-flex align-items-center justify-content-center'>2</div>
+                                    <p className='llamador_last_call_consul'>Box</p>
                                 </div>
+                                <Media src={Video} ></Media>
                             </div>
                         </div>
                     </div>
                     <div className='llamador_list_last_call'>
-                        <h2>últimosLLamados</h2>
-                        <div>
+                        <div className='llamador_list_last_call__titulo d-flex justify-content-center align-items-center'>
+                            <h2>Últimos LLamados</h2>
+                        </div>
+                        <div className='llamador_list_last_call__card_last d-flex flex-column align-items-center mb-2'>
                             <h3>Martinez Gutierrez José Alberto</h3>
-                            <div className='llamador_list_last_call_consul'>Box-2</div>
+                            <div className='llamador_list_last_call_consul align-self-start'>Box-2</div>
+                        </div>
+                        <div className='llamador_list_last_call__card d-flex flex-column align-items-center mb-2'>
+                            <h3>Martinez Gutierrez José Alberto</h3>
+                            <div className='llamador_list_last_call_consul align-self-start'>Box-2</div>
+                        </div>
+                        <div className='llamador_list_last_call__card d-flex flex-column align-items-center mb-2'>
+                            <h3>Martinez Gutierrez José Alberto</h3>
+                            <div className='llamador_list_last_call_consul align-self-start'>Box-2</div>
+                        </div>
+                        <div className='llamador_list_last_call__card d-flex flex-column align-items-center mb-2'>
+                            <h3>Martinez Gutierrez José Alberto</h3>
+                            <div className='llamador_list_last_call_consul align-self-start'>Box-2</div>                        
+                        </div>
+                        <div className='llamador_list_last_call__card d-flex flex-column align-items-center mb-2'>
+                            <h3>Martinez Gutierrez José Alberto</h3>
+                            <div className='llamador_list_last_call_consul align-self-start'>Box-2</div>                        
+                        </div>
+                        <div className='llamador_list_last_call__card d-flex flex-column align-items-center mb-2'>
+                            <h3>Martinez Gutierrez José Alberto</h3>
+                            <div className='llamador_list_last_call_consul align-self-start'>Box-2</div>                        
+                        </div>
+                        <div className='llamador_list_last_call__card d-flex flex-column align-items-center mb-2'>
+                            <h3>Martinez Gutierrez José Alberto</h3>
+                            <div className='llamador_list_last_call_consul align-self-start'>Box-2</div>                        
                         </div>
                     </div>
                 </div>           

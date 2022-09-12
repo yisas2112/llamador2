@@ -3,15 +3,16 @@
 
 
 .App{
-  font-family: $tipografia-general;
+  font-family: $font-general;
 
   h1{
-    font-family: $tipografia-titulo;
+    font-family: $font-titulo;
   }
 
 }
 
-
-body{
-  height: 100%;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
