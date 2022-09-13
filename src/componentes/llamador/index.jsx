@@ -5,13 +5,10 @@ import './index.scss'
 import Media from '../video'
 import Video from '../../images/video.mp4'
 import Datos from '../../datos/datos.json'
+import Card from '../Card';
 
 const Llamador = ()=>{        
-    const [paciente, setpaciente] = useState({
-        nombre: '',
-        apellido: '',
-        consultorio: ''
-    })
+    const [paciente, setpaciente] = useState()
     const [listaPaciente, setListaPaciente] = useState([])
     
     
@@ -46,9 +43,37 @@ const Llamador = ()=>{
     //     })
     // },[])
 
+    const randomElement = ()=>{
+        const keys = Object.keys(Datos)
+
+        return Datos[keys[keys.length * Math.random() << 0]]
+    }
+
+    const addListPac = (nuevoPaciente) => {  
+        console.log(nuevoPaciente)                                            
+        setListaPaciente((listaPaciente) => [...listaPaciente, nuevoPaciente])
+        //setListaPaciente(listaPaciente.push(nuevoPaciente))        
+        console.log(listaPaciente)                                    
+    }
+   
     useEffect(()=>{
-        console.log(Datos)
-    })
+        console.log(typeof(listaPaciente))
+        if(paciente === undefined){
+            let pac = randomElement(Datos)                         
+            console.log(pac)
+            setpaciente(pac)   
+            setListaPaciente((listaPaciente) => [...listaPaciente, pac])
+        }        
+
+        setInterval(() => {            
+            if(paciente !== undefined){              
+                let pac = randomElement(Datos)                                                                         
+                addListPac(pac)
+                
+            }
+          }, 10000);
+
+    },[paciente])
 
     
     
@@ -70,39 +95,15 @@ const Llamador = ()=>{
                                 <Media src={Video} ></Media>
                             </div>
                         </div>
-                    </div>
-                    <div className='llamador_list_last_call'>
+                    </div>                    
+                    <div className='llamador_list_last_call'>                        
                         <div className='llamador_list_last_call__titulo d-flex justify-content-center align-items-center'>
                             <h2>Últimos LLamados</h2>
                         </div>
-                        <div className='llamador_list_last_call__card_last d-flex flex-column align-items-center mb-2'>
-                            <h3>Martinez Gutierrez José Alberto</h3>
-                            <div className='llamador_list_last_call_consul align-self-start'>Box-2</div>
-                        </div>
-                        <div className='llamador_list_last_call__card d-flex flex-column align-items-center mb-2'>
-                            <h3>Martinez Gutierrez José Alberto</h3>
-                            <div className='llamador_list_last_call_consul align-self-start'>Box-2</div>
-                        </div>
-                        <div className='llamador_list_last_call__card d-flex flex-column align-items-center mb-2'>
-                            <h3>Martinez Gutierrez José Alberto</h3>
-                            <div className='llamador_list_last_call_consul align-self-start'>Box-2</div>
-                        </div>
-                        <div className='llamador_list_last_call__card d-flex flex-column align-items-center mb-2'>
-                            <h3>Martinez Gutierrez José Alberto</h3>
-                            <div className='llamador_list_last_call_consul align-self-start'>Box-2</div>                        
-                        </div>
-                        <div className='llamador_list_last_call__card d-flex flex-column align-items-center mb-2'>
-                            <h3>Martinez Gutierrez José Alberto</h3>
-                            <div className='llamador_list_last_call_consul align-self-start'>Box-2</div>                        
-                        </div>
-                        <div className='llamador_list_last_call__card d-flex flex-column align-items-center mb-2'>
-                            <h3>Martinez Gutierrez José Alberto</h3>
-                            <div className='llamador_list_last_call_consul align-self-start'>Box-2</div>                        
-                        </div>
-                        <div className='llamador_list_last_call__card d-flex flex-column align-items-center mb-2'>
-                            <h3>Martinez Gutierrez José Alberto</h3>
-                            <div className='llamador_list_last_call_consul align-self-start'>Box-2</div>                        
-                        </div>
+                        {listaPaciente.reverse().map((e, key)=>{
+                            console.log(key)
+                            return <Card paciente={e} key={key}></Card>
+                        })}
                     </div>
                 </div>           
             </div>

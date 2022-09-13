@@ -1,12 +1,8 @@
 import React, { useRef } from 'react';
-import { useState } from 'react';
-import Video from '../../images/video.mp4'
-import ReactPlayer from 'react-player'
 import { useEffect } from 'react';
 
 
-const Media = (src) => {
-    console.log(src.src)
+const Media = (src) => {    
     const reference = useRef(null)
     
     const attemptPlay = () => {

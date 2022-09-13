@@ -1,97 +1,96 @@
-{
-    "pacientes": [
-        {
-            "firstName": "Ariel Bermudez",
-            "consultorio": "Consultorio 1",
-            "Sector" : "Hemodinamia"
-        },
-        {
-            "firstName": "Jesús Rodriguez",
-            "consultorio": "Consultorio 3",
-            "Sector" : "Primer Piso"
-        },
-        {
-            "firstName": "Leandro Hnatiw",
-            "consultorio": "Consultorio 5",
-            "Sector" : "Segundo Piso"
-        },
-        {
-            "firstName": "Diego Cepeza",
-            "consultorio": "Consultorio 10",
-            "Sector" : "Cirugia"
-        },
-        {
-            "firstName": "Ariel Bermudez",
-            "consultorio": "Consultorio 1",
-            "Sector" : "Hemodinamia"
-        },
-        {
-            "firstName": "Jesús Rodriguez",
-            "consultorio": "Consultorio 3",
-            "Sector" : "Primer Piso"
-        },
-        {
-            "firstName": "Ariel Bermudez",
-            "consultorio": "Consultorio 1",
-            "Sector" : "Hemodinamia"
-        },
-        {
-            "firstName": "Jesús Rodriguez",
-            "consultorio": "Consultorio 3",
-            "Sector" : "Primer Piso"
-        },
-        {
-            "firstName": "Leandro Hnatiw",
-            "consultorio": "Consultorio 5",
-            "Sector" : "Segundo Piso"
-        },
-        {
-            "firstName": "Diego Cepeza",
-            "consultorio": "Consultorio 10",
-            "Sector" : "Cirugia"
-        },
-        {
-            "firstName": "Ariel Bermudez",
-            "consultorio": "Consultorio 1",
-            "Sector" : "Hemodinamia"
-        },
-        {
-            "firstName": "Jesús Rodriguez",
-            "consultorio": "Consultorio 3",
-            "Sector" : "Primer Piso"
-        },
-        {
-            "firstName": "Ariel Bermudez",
-            "consultorio": "Consultorio 1",
-            "Sector" : "Hemodinamia"
-        },
-        {
-            "firstName": "Jesús Rodriguez",
-            "consultorio": "Consultorio 3",
-            "Sector" : "Primer Piso"
-        },
-        {
-            "firstName": "Leandro Hnatiw",
-            "consultorio": "Consultorio 5",
-            "Sector" : "Segundo Piso"
-        },
-        {
-            "firstName": "Diego Cepeza",
-            "consultorio": "Consultorio 10",
-            "Sector" : "Cirugia"
-        },
-        {
-            "firstName": "Ariel Bermudez",
-            "consultorio": "Consultorio 1",
-            "Sector" : "Hemodinamia"
-        },
-        {
-            "firstName": "Jesús Rodriguez",
-            "consultorio": "Consultorio 3",
-            "Sector" : "Primer Piso"
-        }
-        
-    ]
-}
+[
+    {
+        "nombre": "Ariel Bermudez",
+        "consultorio": "Consultorio 1",
+        "Sector" : "Hemodinamia"
+    },
+    {
+        "nombre": "Jesús Rodriguez",
+        "consultorio": "Consultorio 3",
+        "Sector" : "Primer Piso"
+    },
+    {
+        "nombre": "Leandro Hnatiw",
+        "consultorio": "Consultorio 5",
+        "Sector" : "Segundo Piso"
+    },
+    {
+        "nombre": "Diego Cepeza",
+        "consultorio": "Consultorio 10",
+        "Sector" : "Cirugia"
+    },
+    {
+        "nombre": "Ariel Bermudez",
+        "consultorio": "Consultorio 1",
+        "Sector" : "Hemodinamia"
+    },
+    {
+        "nombre": "Jesús Rodriguez",
+        "consultorio": "Consultorio 3",
+        "Sector" : "Primer Piso"
+    },
+    {
+        "nombre": "Ariel Bermudez",
+        "consultorio": "Consultorio 1",
+        "Sector" : "Hemodinamia"
+    },
+    {
+        "nombre": "Jesús Rodriguez",
+        "consultorio": "Consultorio 3",
+        "Sector" : "Primer Piso"
+    },
+    {
+        "nombre": "Leandro Hnatiw",
+        "consultorio": "Consultorio 5",
+        "Sector" : "Segundo Piso"
+    },
+    {
+        "nombre": "Diego Cepeza",
+        "consultorio": "Consultorio 10",
+        "Sector" : "Cirugia"
+    },
+    {
+        "nombre": "Ariel Bermudez",
+        "consultorio": "Consultorio 1",
+        "Sector" : "Hemodinamia"
+    },
+    {
+        "nombre": "Jesús Rodriguez",
+        "consultorio": "Consultorio 3",
+        "Sector" : "Primer Piso"
+    },
+    {
+        "nombre": "Ariel Bermudez",
+        "consultorio": "Consultorio 1",
+        "Sector" : "Hemodinamia"
+    },
+    {
+        "nombre": "Jesús Rodriguez",
+        "consultorio": "Consultorio 3",
+        "Sector" : "Primer Piso"
+    },
+    {
+        "nombre": "Leandro Hnatiw",
+        "consultorio": "Consultorio 5",
+        "Sector" : "Segundo Piso"
+    },
+    {
+        "nombre": "Diego Cepeza",
+        "consultorio": "Consultorio 10",
+        "Sector" : "Cirugia"
+    },
+    {
+        "nombre": "Ariel Bermudez",
+        "consultorio": "Consultorio 1",
+        "Sector" : "Hemodinamia"
+    },
+    {
+        "nombre": "Jesús Rodriguez",
+        "consultorio": "Consultorio 3",
+        "Sector" : "Primer Piso"
+    }
+    
+]
+
 
 
