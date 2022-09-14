@@ -51,6 +51,7 @@ const Llamador = ()=>{
 
     const addListPac = (nuevoPaciente) => {  
         console.log(nuevoPaciente)                                            
+        console.log(listaPaciente.length)                                            
         setListaPaciente((listaPaciente) => [...listaPaciente, nuevoPaciente])
         //setListaPaciente(listaPaciente.push(nuevoPaciente))        
         console.log(listaPaciente)                                    
@@ -100,10 +101,12 @@ const Llamador = ()=>{
                         <div className='llamador_list_last_call__titulo d-flex justify-content-center align-items-center'>
                             <h2>Últimos LLamados</h2>
                         </div>
-                        {listaPaciente.reverse().map((e, key)=>{
+                        {/* {listaPaciente.reverse().map((e, key)=>{
                             console.log(key)
-                            return <Card paciente={e} key={key}></Card>
-                        })}
+                            return <Card paciente={e} index={key}></Card>
+                        })} */}
+
+                        <Card paciente={listaPaciente}></Card>
                     </div>
                 </div>           
             </div>
