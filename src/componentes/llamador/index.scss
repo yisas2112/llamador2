@@ -30,36 +30,7 @@
                 font-family: $font-texto;
             }
 
-            .llamador_last_call{
-                height: calc(100% - 7rem);
-                color: $font-color;                
-                justify-content: space-around;
-                h1{
-                    font-size: $font-size;
-                    margin: 0;
-                    color: $color-titulo;
-                }
-                .llamador_last_call_video_consul{                    
-                    height:auto;
-                    color: white;
-                    .llamador_last_call_consul_number{                                                
-                        width: 15rem;
-                        background-color: $background-menu;
-                        font-size: 2rem;
-                        margin-right: 0.4rem;
-                        border-radius: 5px;
-                        box-shadow: 0 15px 28px rgba(0,0,0,0.10), 0 9px 9px rgba(0,0,0,0.22);
-                        .llamador_last_call_number{
-                            width: 6rem;
-                            height: 13rem;
-                            font-size: 13rem;     
-                        }
-                        .llamador_last_call_consul{
-                            margin: 0;
-                        }
-                    }
-                }
-            }
+            
         }
         .llamador_list_last_call{
             width: 37%;

@@ -2,17 +2,22 @@
 
 
     .card__container{
-        
+        height: 6rem !important;
+        font-size: $font-texto;
+        height: 5rem;
         background-color: $background-menu;
         color: white;
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 7px 7px rgba(0,0,0,0.22);
         border-radius: 5px;
+     
+    }
 
-        .llamador_list_last_call__card{
-            background-color: $font-color;
-            color: white;
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 7px 7px rgba(0,0,0,0.22);
-            border-radius: 5px;
-            transform: scale(0.95);
-        }
+    .llamador_list_last_call__card{                
+        height: 6rem;
+        background-color: $font-color;
+        color: white;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 7px 7px rgba(0,0,0,0.22);
+        border-radius: 5px;
+        transform: scale(0.95);
+     
     }

@@ -1,25 +1,29 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { useRef } from "react";
 import './index.scss'
 
-const Card = ({paciente, index})=>{
-    console.log(paciente)
-    const reference = useRef()
+const Card = ({paciente})=>{
+    const [arrayPac, setArrayPac] = useState([])
 
-    return <> 
-                {/* {paciente ? <div ref={reference} key={index} className={`card__container d-flex flex-column align-items-center mb-2`}>
-                <h3>{paciente.nombre}</h3>                
-                <div className='align-self-start'>{paciente.consultorio}</div>
-                </div> : ''} */}
+    
+    useEffect(()=>{
+        if(arrayPac.length > 4){
+    arrayPac.pop()
+        }
+        
+        paciente === '' ? arrayPac.pop() : setArrayPac((arrayPac) => [...arrayPac, paciente])        
+    },[paciente])
+    
+    return <>               
                 {
-                    
-                    paciente.reverse().map((e, key)=>{
-                        
-                        return <div ref={reference} key={key} className={`card__container d-flex flex-column align-items-center mb-2`}>
-                        <h3>{e.nombre}</h3>                
-                        <div className='align-self-start'>{e.consultorio}</div>
+                    arrayPac.reverse().map((e, key)=>{                               
+                        return <div key={key} className={( key === 0 ? `card__container d-flex flex-column align-items-center mb-2` : `llamador_list_last_call__card d-flex flex-column align-items-center mb-2`)} >
+                        <h3>{e.nombre} {e.apellido}</h3>                
+                        <div className='align-self-start ml-2'>{e.consultorio}</div>
                         </div>
-                    })
+                    }) 
                 }
             </>
 }

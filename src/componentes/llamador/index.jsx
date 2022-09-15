@@ -6,107 +6,71 @@ import Media from '../video'
 import Video from '../../images/video.mp4'
 import Datos from '../../datos/datos.json'
 import Card from '../Card';
+import axios from 'axios';
+import LastPasc from '../LastPac';
 
 const Llamador = ()=>{        
     const [paciente, setpaciente] = useState()
     const [listaPaciente, setListaPaciente] = useState([])
+    const [cluster, setCluster] = useState()
+    const [clave, setClave] = useState()
     
     
-    // useEffect(()=>{        
-    //     let callback = (eventName, dato) => {   
-    //         console.log(dato)
-    //         console.log(paciente.nombre )
-    //         if((Object.keys(dato).length > 0) && paciente.nombre !== ''){    
-                              
-    //             setpaciente(paciente.nombre = dato.message.nombre,
-    //                 paciente.apellido = dato.message.apellido,
-    //                 paciente.consultorio = dato.message.consultorio)                
-    //             setListaPaciente(listaPaciente.push(paciente))            
-                
-    //         }
+    useEffect(()=>{       
+        axios.get(`http://10.1.0.11:8000/api/atencionPaciente/websocket`)
+      .then(res => {                
+        setCluster(res.data.cluster)
+        setClave(res.data.key)
+        setPusher(cluster,clave)
+      })         
             
-    //         console.log(paciente)
-    //         console.log(listaPaciente)
-    //       };
-    //     const pusher = new Pusher('fd221ab961e9ba848ace',{
-    //         cluster: 'us2'
-    //     })        
-    //     console.log(pusher)
-        
-        
-    //     const prueba = pusher.subscribe('channel-llamador')                
-    //     console.log(prueba)
-    //     prueba.bind_global(callback)
-        
-    //     return (()=>{
-    //         prueba.unsubscribe('channel-llamador')        
-    //     })
-    // },[])
+    },[cluster,clave])
 
-    const randomElement = ()=>{
-        const keys = Object.keys(Datos)
-
-        return Datos[keys[keys.length * Math.random() << 0]]
-    }
-
-    const addListPac = (nuevoPaciente) => {  
-        console.log(nuevoPaciente)                                            
-        console.log(listaPaciente.length)                                            
-        setListaPaciente((listaPaciente) => [...listaPaciente, nuevoPaciente])
-        //setListaPaciente(listaPaciente.push(nuevoPaciente))        
-        console.log(listaPaciente)                                    
-    }
-   
-    useEffect(()=>{
-        console.log(typeof(listaPaciente))
-        if(paciente === undefined){
-            let pac = randomElement(Datos)                         
-            console.log(pac)
-            setpaciente(pac)   
-            setListaPaciente((listaPaciente) => [...listaPaciente, pac])
-        }        
-
-        setInterval(() => {            
-            if(paciente !== undefined){              
-                let pac = randomElement(Datos)                                                                         
-                addListPac(pac)
+    const setPusher = async (cluster, clave)=>{
+        let callback = (eventName, dato) => {               
+            if(dato){                
+                setpaciente(dato.message)                   
+                console.log(dato.message)                   
+                //setListaPaciente((listaPaciente) => [...listaPaciente, pac])
+                //addListPac(pac)
                 
             }
-          }, 10000);
+            
+                
+            };            
+            const pusher = new Pusher(`${clave}`,{                
+                cluster: cluster,        
+                wsHost: '10.1.0.11',
+                wsPort: 6001,
+                disableStats: true,
+                forceTLS: false
+            })        
+            
+            const channel =  pusher.subscribe("channel-llamador")                       
+            pusher.allChannels().forEach(channel => console.log(channel));
+            channel.bind_global(callback)
+            
+            return (()=>{
+                channel.unsubscribe('channel-llamador')        
+            })
 
-    },[paciente])
-
-    
+    }
     
     return <>
             <div id='llamador'>     
                 <div className='container-fluid d-flex llamador__container'>
                     <div className='llamador_logo_titulo__last__pac'>
                         <div className='d-flex llamador_logo_titulo align-items-center'>
-                            <img src={Logo} ></img>
+                            <img  alt='Logo Sucursal' src={Logo} ></img>
                             
                         </div>
-                        <div className='llamador_last_call d-flex flex-column '> 
-                            <h1>Jesús Rodriguez</h1>
-                            <div className='d-flex justify-content-around llamador_last_call_video_consul '>
-                                <div className='llamador_last_call_consul_number d-flex flex-column align-items-center '>
-                                    <div className='llamador_last_call_number d-flex align-items-center justify-content-center'>2</div>
-                                    <p className='llamador_last_call_consul'>Box</p>
-                                </div>
-                                <Media src={Video} ></Media>
-                            </div>
-                        </div>
+                        <LastPasc dato={paciente}/>
                     </div>                    
                     <div className='llamador_list_last_call'>                        
                         <div className='llamador_list_last_call__titulo d-flex justify-content-center align-items-center'>
                             <h2>Últimos LLamados</h2>
                         </div>
-                        {/* {listaPaciente.reverse().map((e, key)=>{
-                            console.log(key)
-                            return <Card paciente={e} index={key}></Card>
-                        })} */}
-
-                        <Card paciente={listaPaciente}></Card>
+                        <Card paciente={paciente ? paciente : ''}></Card>
                     </div>
                 </div>           
             </div>
@@ -137,12 +101,16 @@ const Llamador = ()=>{
  
 //         let prueba = window.Echo = new Echo({
 //         broadcaster: 'pusher',
-//         key: 'lsPNeJoZkZXLrNWDcA',
-//         cluster: 'us2',
-//         forceTLS: true
+//         key: 'ABCD',
+//         cluster: 'mt1',        
+//         wsHost: '10.1.0.11',
+//         wsPort: 6001,
+//         disableStats: true,
+//         forceTLS: false
 //         });
         
 //         console.log(prueba)
+        
 
 //         let channel = prueba.channel('channel-llamador')
 //         console.log(channel)
