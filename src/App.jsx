@@ -1,13 +1,17 @@
-import logo from './logo.svg';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import './App.scss';
 import Llamador from './componentes/llamador';
-import { ReactDOM } from 'react';
+
 
 
 function App() {
   return <>
-        <Llamador/>
-
+        <BrowserRouter>       
+        <Routes>          
+          <Route exact path='/' element={ <Llamador/>}/>
+        </Routes>       
+      </BrowserRouter>
+        
       
   </>
 }

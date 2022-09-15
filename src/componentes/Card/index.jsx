@@ -21,7 +21,7 @@ const Card = ({paciente})=>{
                     arrayPac.reverse().map((e, key)=>{                               
                         return <div key={key} className={( key === 0 ? `card__container d-flex flex-column align-items-center mb-2` : `llamador_list_last_call__card d-flex flex-column align-items-center mb-2`)} >
                         <h3>{e.nombre} {e.apellido}</h3>                
-                        <div className='align-self-start ml-2'>{e.consultorio}</div>
+                        <div className='card__consultorio align-self-start ml-2'>{e.consultorio}</div>
                         </div>
                     }) 
                 }
