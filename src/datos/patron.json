@@ -1,0 +1,43 @@
+[
+  { "id_patron": 1, 
+    "servicio_origen": "*",
+    "id_sector": "*",
+    "empsuc": -1,
+    "patron" : "@ape_nom. @consultorio_desc",
+    "media": "media_default",
+    "timer_value" : "5",
+    "servicio" : null,
+    "sucursal" : null
+    },
+    { "id_patron": 2, 
+    "servicio_origen": "*",
+    "id_sector": "1001,2001,1000,2002,2003",
+    "empsuc": -1,
+    "patron" : "@ape_nom. @consultorio_desc",
+    "media": "media_default",
+    "timer_value" : "5",
+    "servicio" : null,
+    "sucursal" : null
+    },
+    { "id_patron": 3, 
+    "servicio_origen": "*",
+    "id_sector": "2000,2004",
+    "empsuc": -1,
+    "patron" : "@ape_nom. @consultorio_desc",
+    "media": "media_default",
+    "timer_value" : "5",
+    "servicio" : null,
+    "sucursal" : null
+    },
+    { "id_patron": 4, 
+    "servicio_origen": "*",
+    "id_sector": "3000,3001",
+    "empsuc": -1,
+    "patron" : "@ape_nom. @consultorio_desc",
+    "media": "media_default",
+    "timer_value" : "5",
+    "servicio" : null,
+    "sucursal" : null
+    }
+  
+]
