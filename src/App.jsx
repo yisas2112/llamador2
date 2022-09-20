@@ -1,15 +1,18 @@
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.scss';
 import Llamador from './componentes/llamador';
+import Patron from "./componentes/Patron";
 
 
 
 function App() {
   return <>
-        <BrowserRouter>       
-        <Routes>          
-          <Route exact path='/' element={ <Llamador/>}/>
-        </Routes>       
+        <BrowserRouter>    
+          <Routes>
+            <Route path="/llamador" element={<Llamador/>}/>
+            <Route path="/" element={<Patron/>}/>
+          </Routes>   
+              
       </BrowserRouter>
         
       

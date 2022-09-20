@@ -1,0 +1,18 @@
+body{ 
+  width: 100%;
+  margin: 0;
+  background: #bdbdc9;
+  font-size: 16px;
+}
+#patron{  
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  .select__patron{
+    width: 50%;
+    margin: auto;
+    border-radius: 2.5rem;
+  }
+}
+
