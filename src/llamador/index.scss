@@ -1,0 +1,47 @@
+
+@import '../../variables/index.scss';
+
+#llamador{
+    min-height: 100vh;
+    width: 100%;
+    padding: 0;
+    margin: 0;    
+    background-color: $background-color;
+    .llamador__container{   
+        
+        height: 100%;
+        img{
+            height: 3rem;
+            margin-right: 1rem;
+        }
+        .llamador_logo_titulo__last__pac{            
+            width: 63%;                        
+            .llamador_logo_titulo{                
+                height: 6.7rem;                
+                span{
+                    width: 100%;
+                    
+                }
+            }
+
+            .llamador_establecimiento{
+                font-size: 2.5rem;
+                color: $font-color;
+                font-family: $font-texto;
+            }
+
+            
+        }
+        .llamador_list_last_call{
+            width: 37%;
+            .llamador_list_last_call__titulo{
+                margin: 1rem 0;
+                h2{
+                    font-size: 3.5rem;                    
+                    color: $font-color;
+                }
+            }
+            
+        }
+    }
+}
