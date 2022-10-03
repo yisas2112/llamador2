@@ -16,7 +16,7 @@ const LastPasc = ({dato})=>{
     const getConsulNumber = (consul, param) =>{        
         let thenConsul = consul.replace(/[0-9]/g, '');        
         let thenum = consul.replace( /^\D+/g, '')
-        
+        console.log(thenConsul)
     return param === 'num' ? thenum : thenConsul
 
     }

@@ -1,21 +1,21 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import './App.scss';
 import Llamador from './componentes/llamador';
 import Patron from "./componentes/Patron";
-
+import { DatosContext } from "./Context";
 
 
 function App() {
-  return <>
-        <BrowserRouter>    
-          <Routes>
-            <Route path="/llamador" element={<Llamador/>}/>
-            <Route path="/" element={<Patron/>}/>
-          </Routes>   
-              
-      </BrowserRouter>
+  return <>       
+        <DatosContext>
+          <BrowserRouter>            
+            <Routes>
+              <Route path="/llamador/:id" element={<Llamador/>}/>
+              <Route exac path="/" element={<Patron/>}/>
+            </Routes>                 
+          </BrowserRouter>
+        </DatosContext>                
         
-      
   </>
 }
 

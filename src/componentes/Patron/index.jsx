@@ -1,40 +1,46 @@
-import React from "react";
+import React ,{ useEffect, useState }from "react";
 import Select from 'react-select';
 import Logo from "../Logo";
 import './index.scss'
-import Data from '../../datos/patron.json'
-import { useEffect } from "react";
-import { useState } from "react";
-
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
-  { value: 'strawberry', label: 'Strawberry' }
-]
+import { GetPatron } from "../../services";
+import { useContext } from "react";
+import { AppContext } from "../../Context";
 
 
-const Patron = () =>{
-  const [patron, setPatron] = useState(Data)
-  const [values, setValues] = useState([])
+const Patron = () =>{   
+  const [values, setValues] = useState([])          
+  const {addDatos} = useContext(AppContext)  
+  const {setDatos} = useContext(AppContext)  
+  const {datos} = useContext(AppContext)  
+  console.log(datos)
   
-  useEffect(()=>{    
-    patron.map((patrones)=>{
-      console.log(patrones)
-      console.log(values)
-      //setValues(...values, {values: patrones.id_sector, label: `Patron ${patrones.id_patron} - ${patrones.patron}`})
-      setValues((preState)=> [...preState, {values: patrones.id_sector, label: `Patron ${patrones.id_patron} - ${patrones.patron}`}])
+  const handleLinlk = (event) =>{    
+    window.location.href = `/llamador/${event.values}`;    
+  }
+  
+  const getDataApi = async()=>{
+    let data = await GetPatron()         
+
+    if(data.data){       
+      addDatos(data)
+        setDatos(data)      
+        data.data.map((e)=>{                  
+        setValues((preState)=> [...preState, {values: e.id_patron, label: `${e.id_patron} - Servicio: ${e.servicio.descripcion} - Sector: ${e.sector == '*' ? '<TODOS>' : e.sector}- Sucursal: ${e.sucursal.empresa_desc}`}])
         
-       
-    })
-    console.log(values)
-  },[])
-  return <>
-        <div id="patron">          
-            <Logo/>
-            <Select className="select__patron" options={values}/>          
-          </div>
+      })      
+    }        
+  }
   
+  useEffect(()=>{
+    getDataApi()
+    
+  },[])
+  
+  return <>        
+        <div id="patron">                          
+            <Logo/>            
+            <Select className="select__patron" options={values} onChange={(chioce) => {handleLinlk(chioce)}} isClearable={false}/>
+        </div>
   </>
 }
 

@@ -5,7 +5,8 @@ import { useEffect } from 'react';
 const Media = (src) => {    
     const reference = useRef(null)
     
-    const attemptPlay = () => {
+    
+    const attemptPlay = () => {        
         reference &&
         reference.current &&
         reference.current.play().catch(error => {
