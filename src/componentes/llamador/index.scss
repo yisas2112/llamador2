@@ -7,14 +7,14 @@
     padding: 0;
     margin: 0;    
     background-color: $background-color;
-    .llamador__container{   
-        
-        height: 100%;
+    .llamador__container{
+        height: 100vh;
         img{
             height: 3rem;
             margin-right: 1rem;
         }
         .llamador_logo_titulo__last__pac{            
+            height: auto;
             width: 63%;                        
             .llamador_logo_titulo{                
                 height: 6.7rem;                

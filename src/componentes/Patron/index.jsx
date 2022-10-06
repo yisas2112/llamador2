@@ -1,34 +1,33 @@
 import React ,{ useEffect, useState }from "react";
+import { useContext } from "react";
+import { AppContext } from "../../Context";
 import Select from 'react-select';
 import Logo from "../Logo";
 import './index.scss'
+import { useNavigate } from "react-router-dom";
 import { GetPatron } from "../../services";
-import { useContext } from "react";
-import { AppContext } from "../../Context";
 
 
 const Patron = () =>{   
-  const [values, setValues] = useState([])          
-  const {addDatos} = useContext(AppContext)  
-  const {setDatos} = useContext(AppContext)  
-  const {datos} = useContext(AppContext)  
-  console.log(datos)
+  const [values, setValues] = useState([])              
+  const navigate = useNavigate()
+  const {setDatos} = useContext(AppContext)
   
-  const handleLinlk = (event) =>{    
-    window.location.href = `/llamador/${event.values}`;    
+  
+  const handleLinlk = (event) =>{         
+    navigate(`/llamador/${event.values}`)
   }
-  
-  const getDataApi = async()=>{
-    let data = await GetPatron()         
 
-    if(data.data){       
-      addDatos(data)
-        setDatos(data)      
-        data.data.map((e)=>{                  
-        setValues((preState)=> [...preState, {values: e.id_patron, label: `${e.id_patron} - Servicio: ${e.servicio.descripcion} - Sector: ${e.sector == '*' ? '<TODOS>' : e.sector}- Sucursal: ${e.sucursal.empresa_desc}`}])
-        
+
+  const getDataApi = async()=>{
+    let data = await GetPatron()
+    setDatos(data)
+
+    if(data.data){                              
+      data.data.map((e)=>{                  
+      setValues((preState)=> [...preState, {values: e.id_patron, label: `${e.id_patron} - Servicio: ${e.servicio.descripcion} - Sector: ${e.sector == '*' ? '<TODOS>' : e.sector}- Sucursal: ${e.sucursal.empresa_desc}`}])      
       })      
-    }        
+    } 
   }
   
   useEffect(()=>{
@@ -36,6 +35,7 @@ const Patron = () =>{
     
   },[])
   
+ 
   return <>        
         <div id="patron">                          
             <Logo/>            

@@ -10,24 +10,16 @@ const LastPasc = ({dato})=>{
     const [paciente, setPaciente] = useState()    
 
     useEffect(()=>{        
-        setPaciente(dato)
+        setPaciente(dato)        
     },[dato])
-
-    const getConsulNumber = (consul, param) =>{        
-        let thenConsul = consul.replace(/[0-9]/g, '');        
-        let thenum = consul.replace( /^\D+/g, '')
-        console.log(thenConsul)
-    return param === 'num' ? thenum : thenConsul
-
-    }
 
     return <>  
             <div id="llamador_last_call" className='d-flex flex-column '> 
-            <h1>{paciente !== undefined ? paciente.nombre  + paciente.apellido: 'Paciente'}</h1>
-            <div className='d-flex justify-content-around llamador_last_call_video_consul '>
-                <div className='llamador_last_call_consul_number d-flex flex-column align-items-center '>
-                    <div className='llamador_last_call_number d-flex align-items-center justify-content-center'>{paciente !== undefined ? getConsulNumber(paciente.consultorio, 'num') : '1'}</div>
-                    <p className='llamador_last_call_consul'> {paciente !== undefined ? getConsulNumber(paciente.consultorio, 'Consul') : 'Consultorio'}</p>
+            <h1>{paciente !== undefined ? paciente.nombre : 'Paciente'}</h1>
+            <div className='d-flex llamador_last_call_video_consul '>
+                <div className='llamador_last_call_consul_number d-flex flex-column align-items-center justify-content-center'>
+                    <div className='llamador_last_call_number d-flex justify-content-center'>{paciente !== undefined ? paciente.consultorio : '1'}</div>
+                    <p className='llamador_last_call_consul'> {(paciente !== undefined) ? Object.keys(paciente)[1] : 'Consultorio'}</p>
                 </div>
                 <Media src={Video} ></Media>
             </div>
