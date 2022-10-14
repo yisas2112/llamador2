@@ -21,14 +21,14 @@ const Patron = () =>{
 
   const getDataApi = async()=>{
     let data = await GetPatron()
-    setDatos(data)
+    setDatos(data)    
 
     if(data.data){                              
-      data.data.map((e)=>{                  
-      setValues((preState)=> [...preState, {values: e.id_patron, label: `${e.id_patron} - Servicio: ${e.servicio.descripcion} - Sector: ${e.sector == '*' ? '<TODOS>' : e.sector}- Sucursal: ${e.sucursal.empresa_desc}`}])      
+      data.data.map((e)=>{                     
+        setValues((preState)=> [...preState, {values: e.id_patron, label: `${e.id_patron} - Sucursal: ${e.sucursal.sucursal_desc} - Servicio: ${e.servicio.descripcion} - Sector: ${e.sector == '*' ? '<TODOS>' : e.sector}`}])      
       })      
     } 
-  }
+  }  
   
   useEffect(()=>{
     getDataApi()

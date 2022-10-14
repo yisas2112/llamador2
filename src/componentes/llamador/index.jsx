@@ -34,7 +34,8 @@ const Llamador = ()=>{
     },[getDataSocket])    
 
     const setPusher = async (cluster, clave)=>{        
-        let callback = (eventName, dato) => {                         
+        let callback = (eventName, dato) => {  
+            console.log(datos)                       
             datos.data !== undefined ?                
                 datos.data.map((patron)=>{                
                     if(patron.id_patron == id_patron.id){
@@ -50,7 +51,7 @@ const Llamador = ()=>{
                         })
                     }
                 }) 
-        : navigate(`/`)
+            : navigate(`/`)
             
             };            
             const pusher = new Pusher(`${clave}`,{                
